@@ -1,3 +1,4 @@
+// Adam Villarosa
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -16,15 +17,20 @@ int main(){
 	
 	smatch result;	
 	regex  ipAddress("[[:digit:]]+[[:digit:]]+[[:punct:]]+[[:digit:]]+[[:punct:]]+[[:digit:]]+[[:punct:]]+[[:digit:]]+[[:digit:]]");
-	while (regex_search (textString, result, ipAddress)) {
-	
-		for (auto& x:result) 
-		cout << x << ' ' << endl;
-			
+	while (regex_search (textString, result, ipAddress)){
+		for (auto x:result) 
+		cout << x << " ";
+		cout << endl;
 		textString = result.suffix().str();
+
+
+
+	}
+	
+		
 		
 	
-	}
+
 	
 
 
