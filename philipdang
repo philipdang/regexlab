@@ -1,0 +1,32 @@
+//Philip Dang
+//Regex Lab
+
+#include <iostream>
+#include <regex>
+#include <fstream>
+#include <string>
+#include <cstring>
+#include <cstdlib>
+using namespace std;
+
+int main() {
+    
+    string fileName = "text.txt";
+    string line;
+    fstream myfile;
+    myfile.open(fileName.c_str());
+    getline(myfile, line);
+    
+    regex e;
+    e = ("\\d+\\.\\d+\\.\\d+\\.\\d+");
+    smatch f;
+    while (regex_search(line, f, e))
+    {
+        for (auto x:f)
+        cout<<x<<" ";
+        cout<<endl;
+        line = f.suffix().str();
+    }
+    myfile.close();
+    return 0;
+}
